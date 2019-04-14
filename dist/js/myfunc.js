@@ -7,11 +7,10 @@ var fillDiv = function (direction, parent, fillChild) {
         }
         fillChild.height(wholeHeight);
     } else if(direction == 'h'){
-        var wholeWidth = parent.width();
-        fillChild.css('float', 'left');
-        for (var i = 3; i < arguments.length; i++) {
-            arguments[i].css('float', 'left');
-        }
+        // fillChild.css('float', 'left');
+        // for (var i = 3; i < arguments.length; i++) {
+        //     arguments[i].css('float', 'left');
+        // }
         var wholeWidth = parent.width();
         for (var i = 3; i < arguments.length; i++) {
             wholeWidth -= arguments[i].width()
