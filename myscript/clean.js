@@ -1,14 +1,12 @@
 const rootdir = '.';  //根目录
 
-//合并js文件，并去除console
 var fs = require('fs');
 var path = require('path');  //解析需要遍历的文件夹
 // var filePath = path.resolve(mergedir);  //当前绝对路径
 console.log(path.resolve('./src'));
 
 //清理文件夹
-cleanDir(path.resolve('./dist'));
-// cleanDir(path.resolve('./babel'));
+cleanDir(path.resolve('./ghf55gfh4fg'));
 
 //清理文件夹
 function cleanDir(filePath){
@@ -40,7 +38,7 @@ function cleanDir(filePath){
                             // console.log(content);
                         }
                         if(isDir){
-                            fileDisplay(filedir);//递归，如果是文件夹，就继续遍历该文件夹下面的文件
+                            cleanDir(filedir);//递归，如果是文件夹，就继续遍历该文件夹下面的文件
                         }
                     }
                 })

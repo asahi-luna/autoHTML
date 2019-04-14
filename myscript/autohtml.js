@@ -4,17 +4,14 @@ var path = require('path');
 // direction, classname, size
 // f: fill
 var layout = [
-    ['v,t,100px', [
-        ['h,l,20%'],
-        ['h,c,50%'],
-        ['h,r,f' ,[
-            ['v,t,f'],
-            ['v,m,40%'],
-            ['v,b,40%']
+    ['v,r1,100px'], 
+    ['v,r2,f', [
+        ['h,c1,150px'],
+        ['h,c2,f',[
+            ['h,c1,50%'],
+            ['h,c2,50%']
         ]]
-    ]], 
-    ['v,m,f'],
-    ['v,b,150px']
+    ]]
 ];
 
 var renderJS = function(layout, myjs = '', classname = ''){
@@ -118,7 +115,7 @@ var outhtml = fs.readFileSync(path.resolve('./templates/html/htmlhead.html')) + 
 fs.writeFileSync(path.resolve('./dist/index.html'), outhtml);
 
 var outcss = fs.readFileSync(path.resolve('./templates/css/csshead.css')) + '\n' + mycss + '\n';
-fs.writeFileSync(path.resolve('./dist/index.css'), outcss);
+fs.writeFileSync(path.resolve('./dist/css/index.css'), outcss);
 
 var outjs = fs.readFileSync(path.resolve('./templates/js/jshead.txt')) + '\n' + myjs + fs.readFileSync(path.resolve('./templates/js/jsfoot.txt'));
-fs.writeFileSync(path.resolve('./dist/index.js'), outjs);
+fs.writeFileSync(path.resolve('./dist/js/index.js'), outjs);

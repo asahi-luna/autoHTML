@@ -1,0 +1,51 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+.r1 {
+    width: 100%;
+    height: 100px;
+    box-sizing: border-box;
+    background-color: rgb(133, 140, 124);
+}
+
+.r2 {
+    width: 100%;
+    height: 0;
+    box-sizing: border-box;
+    background-color: rgb(186, 80, 87);
+}
+
+.r2-c1 {
+    width: 150px;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: rgb(56, 175, 172);
+    float: left;
+}
+
+.r2-c2 {
+    width: 0;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: rgb(50, 235, 61);
+    float: left;
+}
+
+.r2-c2-c1 {
+    width: 50%;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: rgb(40, 217, 213);
+    float: left;
+}
+
+.r2-c2-c2 {
+    width: 50%;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: rgb(99, 191, 209);
+    float: left;
+}
