@@ -1,63 +1,63 @@
-html,
-body {
+html, body{
     padding: 0;
     margin: 0;
     height: 100%;
 }
+.t{
+                    width: 100%;
+                    height: 100px;
+                    box-sizing: border-box;
+                    background-color: rgb(246, 48, 189);
+                }
+.t-l{
+                    width: 20%;
+                    height: 100%;
+                    box-sizing: border-box;
+                    background-color: rgb(206, 17, 68);
+                    float: left;
+                }
+.t-c{
+                    width: 50%;
+                    height: 100%;
+                    box-sizing: border-box;
+                    background-color: rgb(97, 91, 93);
+                    float: left;
+                }
+.t-r{
+                    width: 0;
+                    height: 100%;
+                    box-sizing: border-box;
+                    background-color: rgb(1, 245, 205);
+                    float: left;
+                }
+.t-r-t{
+                    width: 100%;
+                    height: 0;
+                    box-sizing: border-box;
+                    background-color: rgb(95, 136, 195);
+                }
+.t-r-m{
+                    width: 100%;
+                    height: 40%;
+                    box-sizing: border-box;
+                    background-color: rgb(134, 184, 98);
+                }
+.t-r-b{
+                    width: 100%;
+                    height: 40%;
+                    box-sizing: border-box;
+                    background-color: rgb(12, 195, 206);
+                }
+.m{
+                    width: 100%;
+                    height: 0;
+                    box-sizing: border-box;
+                    background-color: rgb(224, 233, 153);
+                }
+.b{
+                    width: 100%;
+                    height: 150px;
+                    box-sizing: border-box;
+                    background-color: rgb(101, 176, 198);
+                }
 
-.t {
-    width: 100%;
-    height: 100px;
-    background-color: rgb(71, 59, 67);
-}
-
-.t-l {
-    width: 20%;
-    height: 100%;
-    background-color: rgb(213, 118, 22);
-    float: left;
-}
-
-.t-c {
-    width: 50%;
-    height: 100%;
-    background-color: rgb(160, 232, 109);
-    float: left;
-}
-
-.t-r {
-    width: 30%;
-    height: 100%;
-    background-color: rgb(190, 6, 47);
-    float: left;
-}
-
-.t-r-t {
-    width: 100%;
-    height: 20%;
-    background-color: rgb(32, 156, 178);
-}
-
-.t-r-m {
-    width: 100%;
-    height: 40%;
-    background-color: rgb(123, 234, 49);
-}
-
-.t-r-b {
-    width: 100%;
-    height: 40%;
-    background-color: rgb(108, 232, 237);
-}
-
-.m {
-    width: 100%;
-    height: 500px;
-    background-color: rgb(153, 225, 171);
-}
-
-.b {
-    width: 100%;
-    height: 150px;
-    background-color: rgb(30, 250, 157);
-}

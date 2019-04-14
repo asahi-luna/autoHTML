@@ -1,0 +1,20 @@
+
+C:\Users\凉夏\Desktop\autohtml>git remote add github https://github.com/asahi-luna/autoHTML.git
+
+C:\Users\凉夏\Desktop\autohtml>git remote
+github
+
+C:\Users\凉夏\Desktop\autohtml>git remote -v
+github  https://github.com/asahi-luna/autoHTML.git (fetch)
+github  https://github.com/asahi-luna/autoHTML.git (push)
+
+C:\Users\凉夏\Desktop\autohtml>git push github master
+Enumerating objects: 24, done.
+Counting objects: 100% (24/24), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (20/20), done.
+Writing objects: 100% (24/24), 85.37 KiB | 3.71 MiB/s, done.
+Total 24 (delta 3), reused 0 (delta 0)
+remote: Resolving deltas: 100% (3/3), done.
+To https://github.com/asahi-luna/autoHTML.git
+ * [new branch]      master -> master

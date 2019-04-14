@@ -2,19 +2,20 @@
 var fillDiv = function (direction, parent, fillChild) {
     if(direction == 'v'){
         var wholeHeight = parent.height();
-        for (var i = 3; i < arguments.length(); i++) {
+        for (var i = 3; i < arguments.length; i++) {
             wholeHeight -= arguments[i].height()
         }
         fillChild.height(wholeHeight);
     } else if(direction == 'h'){
+        var wholeWidth = parent.width();
         fillChild.css('float', 'left');
-        for (var i = 3; i < arguments.length(); i++) {
+        for (var i = 3; i < arguments.length; i++) {
             arguments[i].css('float', 'left');
         }
         var wholeWidth = parent.width();
-        for (var i = 3; i < arguments.length(); i++) {
+        for (var i = 3; i < arguments.length; i++) {
             wholeWidth -= arguments[i].width()
         }
-        fillChild.width(wholeHeight);
+        fillChild.width(wholeWidth);
     }
 }

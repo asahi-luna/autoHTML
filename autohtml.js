@@ -1,53 +1,55 @@
 var fs = require('fs');
 var path = require('path');
 
-// var f = 'f';  //fill
-// var p = function(width, height, child){  //properties
-//     this.width = width;
-//     this.height = height;
-// }
-// var n = function(width, height, child){  //node
-//     this.width = width;
-//     this.height = height;
-// }
-
+// direction, classname, size
+// f: fill
 var layout = [
     ['v,t,100px', [
         ['h,l,20%'],
         ['h,c,50%'],
-        ['h,r,30%' ,[
-            ['v,t,20%'],
+        ['h,r,f' ,[
+            ['v,t,f'],
             ['v,m,40%'],
             ['v,b,40%']
         ]]
     ]], 
-    ['v,m,500px'], 
+    ['v,m,f'],
     ['v,b,150px']
 ];
 
 var renderJS = function(layout, myjs = '', classname = ''){
     if(classname != ''){
-        var fatherclass = classname;
+        var fatherclass = '\'.' + classname + '\'';
         classname = classname + '-';
     } else {
         var fatherclass = 'window';
     }
+    var childrenarr = [];
+    var childrenclassname = [];
+    var eachthisclass = [];
+    var havef = false;
     for(var i = 0; i < layout.length; i++){
-        // console.log(layout[i][0]);
         var thisarr = layout[i][0].split(',');
-        var thisclassname = classname;
-        thisclassname = thisclassname + thisarr[1];
-        if(thisarr[0] == 'v'){
-            var myjs = `$('.content').height($(window).height() - $('.header').height() - $('.footer').height())`;
-        } else if(thisarr[0] == 'h'){
+        var thisclassname = classname + thisarr[1];
+        if(thisarr[2] == 'f'){
+            havef = true;
+            childrenclassname.unshift(' $(\'.' + thisclassname + '\')');
+        } else {
+            childrenclassname.push(' $(\'.' + thisclassname + '\')');
         }
         if(layout[i].length == 2){
-            mycss = renderCSS(layout[i][1], mycss, thisclassname);
-        } else if (layout[i].length == 1){
-            //**//**//
+            childrenarr.push(layout[i]);
+            eachthisclass.push(thisclassname);
         }
     }
-    return mycss;
+    if(havef){
+        myjs += `fillDiv('${layout[0][0].split(',')[0]}', $(${fatherclass}),`;
+        myjs += childrenclassname.join(',') + ');\n'
+    }
+    for(var j = 0; j < childrenarr.length; j++){
+        myjs = renderJS(childrenarr[j][1], myjs, eachthisclass[j]);
+    }
+    return myjs;
 }
 
 var renderCSS = function(layout, mycss = '', classname = ''){
@@ -62,13 +64,13 @@ var renderCSS = function(layout, mycss = '', classname = ''){
         if(thisarr[0] == 'v'){
             mycss += '.' + thisclassname + `{
                     width: 100%;
-                    height: ${(thisarr[2] == 'fill' ? '0': thisarr[2])};
+                    height: ${(thisarr[2] == 'f' ? '0': thisarr[2])};
                     box-sizing: border-box;
                     background-color: rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)});
                 }\n`;
         } else if(thisarr[0] == 'h'){
             mycss += '.' + thisclassname + `{
-                    width: ${(thisarr[2] == 'fill' ? '0': thisarr[2])};
+                    width: ${(thisarr[2] == 'f' ? '0': thisarr[2])};
                     height: 100%;
                     box-sizing: border-box;
                     background-color: rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)});
@@ -106,33 +108,17 @@ var renderHtml = function(layout, myhtml = '', classname = ''){
 
 var myhtml = renderHtml(layout);
 var mycss = renderCSS(layout);
+var myjs = renderJS(layout);
 
 // console.log(myhtml);
 // console.log(mycss);
+// console.log(myjs);
 
-var outhtml = fs.readFileSync(path.resolve('./templates/html/htmlhead.html')) + '\n' + myhtml + '\n' + fs.readFileSync(path.resolve('./templates/html/htmlfoot.html'));
+var outhtml = fs.readFileSync(path.resolve('./templates/html/htmlhead.html')) + '\n' + myhtml + fs.readFileSync(path.resolve('./templates/html/htmlfoot.html'));
 fs.writeFileSync(path.resolve('./dist/index.html'), outhtml);
 
 var outcss = fs.readFileSync(path.resolve('./templates/css/csshead.css')) + '\n' + mycss + '\n';
 fs.writeFileSync(path.resolve('./dist/index.css'), outcss);
 
-// console.log(layout);
-
-// var layout = {
-//     r1: {
-//         props: new p('100%', '100px'),
-//         c: [  //children
-//             {
-//                 r1_c1: {
-//                     props: new p('100%', '100px'),
-//                     c: 0
-//                 }
-//             },{
-//                 r1_c2: {
-//                     props: new p('100%', '100px'),
-//                     c: 0
-//                 }
-//             }
-//         ]
-//     }
-// };
+var outjs = fs.readFileSync(path.resolve('./templates/js/jshead.txt')) + '\n' + myjs + fs.readFileSync(path.resolve('./templates/js/jsfoot.txt'));
+fs.writeFileSync(path.resolve('./dist/index.js'), outjs);
