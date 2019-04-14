@@ -1,0 +1,6 @@
+}
+
+$(window).resize(function () {
+    whenResize();
+});
+});

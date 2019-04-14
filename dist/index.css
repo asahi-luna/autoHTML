@@ -1,0 +1,63 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+.t {
+    width: 100%;
+    height: 100px;
+    background-color: rgb(71, 59, 67);
+}
+
+.t-l {
+    width: 20%;
+    height: 100%;
+    background-color: rgb(213, 118, 22);
+    float: left;
+}
+
+.t-c {
+    width: 50%;
+    height: 100%;
+    background-color: rgb(160, 232, 109);
+    float: left;
+}
+
+.t-r {
+    width: 30%;
+    height: 100%;
+    background-color: rgb(190, 6, 47);
+    float: left;
+}
+
+.t-r-t {
+    width: 100%;
+    height: 20%;
+    background-color: rgb(32, 156, 178);
+}
+
+.t-r-m {
+    width: 100%;
+    height: 40%;
+    background-color: rgb(123, 234, 49);
+}
+
+.t-r-b {
+    width: 100%;
+    height: 40%;
+    background-color: rgb(108, 232, 237);
+}
+
+.m {
+    width: 100%;
+    height: 500px;
+    background-color: rgb(153, 225, 171);
+}
+
+.b {
+    width: 100%;
+    height: 150px;
+    background-color: rgb(30, 250, 157);
+}
