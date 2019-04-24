@@ -7,5 +7,5 @@ $(document).ready(function () {
 $(window).resize(function () {
     whenResize();
 });
-$(body).css('overflow', 'auto');
+$('body').css('overflow', 'auto');
 });
