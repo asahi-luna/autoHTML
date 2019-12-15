@@ -1,5 +1,6 @@
 //v: vertical  h: horizon
 var fillDiv = function (direction, parent, fillChild) {
+    parent = fillChild.parent();
     if(direction == 'v'){
         var wholeHeight = parent.height();
         for (var i = 3; i < arguments.length; i++) {

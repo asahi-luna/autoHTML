@@ -6,7 +6,7 @@ var path = require('path');  //解析需要遍历的文件夹
 console.log(path.resolve('./src'));
 
 //清理文件夹
-cleanDir(path.resolve('./ghf55gfh4fg'));
+cleanDir(path.resolve('./dist'));
 
 //清理文件夹
 function cleanDir(filePath){

@@ -14,6 +14,16 @@ var layout = require(path.resolve('./autohtml.opt'));
 //         ]]
 //     ]]
 // ];
+// var layout = [
+//     ['v,r1,100px'], 
+//     ['v,r2,f', [
+//         ['h,c1,150px'],
+//         ['h,c2,f',[
+//             ['h,c1,50%'],
+//             ['h,c2,50%']
+//         ]]
+//     ]]
+// ];
 
 var renderJS = function(layout, myjs = '', classname = ''){
     if(classname != ''){
